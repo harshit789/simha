@@ -29,7 +29,7 @@ development:
   <<: *default
   database: simha_development
   username: cabme
-  password:
+  password: 123
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
