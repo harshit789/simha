@@ -1,8 +1,8 @@
 # Change these
 server '128.199.112.234', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'https://www.github.com/harshit789/cabme.git'
-set :application,     'cabme'
+set :repo_url,        'https://www.github.com/harshit789/simha.git'
+set :application,     'simha'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
