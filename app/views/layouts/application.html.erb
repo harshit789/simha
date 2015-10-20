@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CABME</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <!-- 1 --><link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <!-- 2 --><link rel="stylesheet" type="text/css" href="/css/roboto.min.css">
+  <!-- 3 --><link rel="stylesheet" type="text/css" href="/css/material.min.css">
+  <!-- 4 --><link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'application' %>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/ripples.min.js"></script>
+  <script type="text/javascript" src="/js/material.min.js"></script>
+
+</head>
+<body>
+
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.cabme.in"><b>CabMe</b></a>
+      </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><a href="/main/about"><b>ABOUT</b></a></li>
+          <li><a href="/main/contact"><b>CONTACT</b></a></li>
+          <li><a href="/bookings/new"><b>BOOK A CAB</b></a></li>
+          <li><a href="/bookings"><b>MY BOOKINGS</b></a></li>
+          <li class="dropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <b><%= current_user.name.upcase %></b>
+              <i class="caret"></i>
+            </a>
+            <ul class="dropdown-menu" data-toggle="dropdown">
+              <li><a href="/users/sign_out" data-method="delete"><b>LOGOUT</b></a></li>
+            </ul>
+          </li>
+        <% else %>
+          <li><a href="/main/about"><b>ABOUT</b></a></li>
+          <li><a href="/main/contact"><b>CONTACT</b></a></li>
+          <!-- <li class="dropdown"> -->
+            <!-- <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><b>LOGIN</b> <i class="caret"></i></a>
+            <ul class="dropdown-menu" data-toggle="dropdown"> -->
+              <li><a href="/users/auth/google_oauth2" class="login-popup" id="navlog" data-method="post"><b>Login using Google</b></a></li>
+              <li><a href="/users/auth/facebook" class="login-popup" id="navlog" data-method="post"><b>Login using Facebook</b></a></li>
+            <!-- </ul> -->
+          <!-- </li> -->
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="welcome">
+    <center>
+      <img class="logo" src="/img/Logo.jpg">
+      <!-- <h1>Welcome to CabMe</h1><br/> -->
+    </center>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <div class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <% if user_signed_in? and (current_user.phone.nil? or current_user.phone.empty?) %>
+    <script type="text/javascript">
+      $(".modal-title").html("MOBILE NUMBER");
+      $(".modal-body").html(
+        '<p>Please fill in your mobile number</p>' +
+        '<form class="form-horizontal">' +
+            '<div class="form-group">' +
+              '<div class="input-group">' +
+                '<span class="input-group-addon">+91</span>' +
+                '<input class="form-control" type="text" id="phone-field" autofocus>' +
+              '</div>' +
+              '<input type="submit" class="btn btn-primary pull-right" id="submit-phone" value="ADD NUMBER">' +
+            '</div>' +
+        '</form>');
+
+      $(".modal")
+        .data("backdrop", "static")
+        .data("keyboard", "false")
+        .modal("show")
+        .keydown(function(e) {
+          if (e.which === 27) {
+            return false;
+          }
+        });
+    </script>
+  <% end %>
+</body>
+<!-- JS -->
+<script type="text/javascript">
+  function loginPopup(url) {
+    var left = (screen.width / 2) - (650 / 2);
+    var top = (screen.height / 2) - (600 / 2);
+
+    return window.open(url, "", "menubar=no,toolbar=no,status=no,width=650,height=600,left=" + (screen.width - 650) / 2 + ",top=85");
+  }
+
+  function bindLoginPopup(){
+    $("a.login-popup").click(function(e) {
+      e.stopPropagation();
+      loginPopup($(this).attr("href"));
+      return false;
+    });
+  }
+
+  $(function() {
+    $.material.init();
+    bindLoginPopup();
+
+
+    $(".join-in").click(function(){
+      $.getJSON("/bookings/join_in",{
+        id: $(this).data("id")
+      },function(res){
+        $(".modal-title").html("JOIN IN PROCEDURE");
+        $(".modal-body").html(
+          '<p>As we are a budding project, we are not fully equipped <em>yet</em>.</p>'+
+          '<p>The procedure for joining in on an existing cab, is through personal contact.</p>'+
+          '<h4>' + res.contact.name + ': ' + res.contact.phone + '</h4>'
+        );
+
+        $(".modal")
+          .removeData("backdrop")
+          .removeData("keyboard")
+          .modal("show")
+          .off("keydown");
+      });
+    });
+
+
+    $("#submit-phone").click(function(e) {
+      e.preventDefault();
+      $.ajax({
+        method: "put",
+        url: "/users",
+        data: {
+          user: {
+            phone: $("#phone-field").val()
+          }
+        },
+        success: function(res) {
+          if (res.status === 1) {
+            $(".modal").modal("hide");
+          };
+        }
+      });
+    });
+  });
+
+</script>
+</html>

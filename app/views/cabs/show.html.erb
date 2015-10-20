@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cab.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @cab.model %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cab.price %>
+</p>
+
+<% if current_user.admin? %>
+  <%= link_to 'Edit', edit_cab_path(@cab) %> |
+<% end %>
+<%= link_to 'Back', cabs_path %>

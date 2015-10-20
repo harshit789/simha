@@ -1,0 +1,73 @@
+<center>
+  <% if user_signed_in? %>
+    <div>
+      <a href="/bookings/new" id="bookbtn" class="btn btn-danger"><b>BOOK A CAB</b></a><br/>
+      <h2 style=" font-family: 'Source Sans Pro', sans-serif !important;">Alternatively, choose from the following carpooling options :</h2><br/>
+    </div>
+  <% else %>
+    <h1 style=" font-family: 'Source Sans Pro', sans-serif !important;">Convenience Quality Control Assured</h1>
+    <h2 style=" font-family: 'Source Sans Pro', sans-serif !important;">Please login to book your cab</h2><br/>
+
+    <div class="row">
+      <div class="col-sm-18 col-sm-offset-2">
+
+        <!-- <button type="button" class="btn btn-default" id="log1"> -->
+          <a href="/users/auth/google_oauth2" class="login-popup btn btn-default" id="log1" data-method="post">
+            <i class="fa fa-google"></i>
+            <b>Login using Google</b>
+          </a>
+        <!-- </button> -->
+
+        <!-- <button type="button" class="btn btn-default" id="log2"> -->
+          <a href="/users/auth/facebook" class="login-popup btn btn-default" id="log2" data-method="post">
+            <i class="fa fa-facebook facebook-col"></i>
+            <b>Login using Facebook</b>
+          </a>
+        <!-- </button> -->
+      </div>
+    </div>
+
+    <h2 style=" font-family: 'Source Sans Pro', sans-serif !important;">Dont want to travel alone ? Avail of our car pooling system :</h2><br/>
+  <% end %>
+</center>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <% if @bookings.length == 0%>
+      <center>
+        <h3>No cabs for car pooling available right now.</h3>
+      </center>
+    <% else %>
+      <% @bookings.each do |b| %>
+        <div class="well">
+          <h4>
+            <a href="javascript:void(0)" class="pull-right join-in" data-id="<%= b.id %>">JOIN IN</a>
+              <%= b.from %>
+              -
+              <%= b.to %>
+          </h4>
+          <%= b.datetime %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $(".join-in").click(function(){
+      $(".modal-title").html("LOGIN REQUIRED");
+      $(".modal-body").html(
+        '<p>Please login to continue.</p>'+
+        '<a href="/users/auth/google_oauth2" class="login-popup btn btn-default" data-method="post">Google</a>'+
+        '<a href="/users/auth/facebook" class="login-popup btn btn-default" data-method="post">Facebook</a>'
+      );
+      $(".modal")
+        .removeData("backdrop")
+        .removeData("keyboard")
+        .modal("show")
+        .off("keydown");
+
+      bindLoginPopup();
+    });
+  });
+</script>

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <% @bookings.each do |b| %>
+      <div class="well">
+        <h4>
+          <%= link_to 'Delete', b, method: :delete, data: { confirm: 'Are you sure?' }, class: "pull-right" %>
+          <%= b.from %>
+          -
+          <%= b.to %>
+        </h4>
+        <%= b.datetime %>
+      </div>
+    <% end %>
+  </div>
+</div>

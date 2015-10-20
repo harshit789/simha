@@ -1,0 +1,379 @@
+<div class="row">
+  <div class="col-sm-12">
+    <!-- <h1>New Booking</h1> -->
+
+    <form class="new_booking" id="new_booking" action="/bookings" accept-charset="UTF-8" method="post" require>
+      <input name="utf8" type="hidden" value="&#x2713;" />
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="hidden" name="distance" value="-1">
+
+      <div id="form_part_1" class="col-md-8 col-md-offset-2 well">
+        <div class="form-group">
+          <label for="booking_from" class="control-label col-sm-2">From</label>
+          <div class="col-sm-10">
+            <input type="text" id="booking_from" class="form-control" name="booking[from]" list="places" data-oldval="" placeholder="FROM">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="booking_to" class="control-label col-sm-2">To</label>
+          <div class="col-sm-10">
+            <input type="text" id="booking_to" class="form-control" name="booking[to]" list="places" data-oldval="" placeholder="TO">
+          </div>
+        </div>
+
+        <datalist id="places"></datalist>
+
+        <div class="form-group">
+          <label for="booking_date" class="control-label col-sm-2">Date</label>
+          <div class="col-sm-2">
+            <select id="booking_datetime_1i" class="form-control" name="booking[datetime(1i)]">
+              <option value="2010">2010</option>
+              <option value="2011">2011</option>
+              <option value="2012">2012</option>
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015" selected="selected">2015</option>
+              <option value="2016">2016</option>
+              <option value="2017">2017</option>
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+            </select>
+          </div>
+
+          <div class="col-sm-5">
+            <select id="booking_datetime_2i" class="form-control" name="booking[datetime(2i)]">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9" selected="selected">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="col-sm-3">
+            <select id="booking_datetime_3i" class="form-control" name="booking[datetime(3i)]">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28" selected="selected">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="booking_date" class="control-label col-sm-2">Time</label>
+          <div class="col-sm-5">
+            <select id="booking_datetime_4i" class="form-control" name="booking[datetime(4i)]">
+              <option value="00">00</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13" selected="selected">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+            </select>
+          </div>
+          <div class="col-sm-5">
+            <select id="booking_datetime_5i" class="form-control" name="booking[datetime(5i)]">
+              <option value="00">00</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26" selected="selected">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+              <option value="32">32</option>
+              <option value="33">33</option>
+              <option value="34">34</option>
+              <option value="35">35</option>
+              <option value="36">36</option>
+              <option value="37">37</option>
+              <option value="38">38</option>
+              <option value="39">39</option>
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+              <option value="49">49</option>
+              <option value="50">50</option>
+              <option value="51">51</option>
+              <option value="52">52</option>
+              <option value="53">53</option>
+              <option value="54">54</option>
+              <option value="55">55</option>
+              <option value="56">56</option>
+              <option value="57">57</option>
+              <option value="58">58</option>
+              <option value="59">59</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-12">
+            <input type="button" id="select_cab" class="btn btn-primary pull-right btn-block btn-raised" value="SELECT CAB">
+          </div>
+        </div>
+      </div><!-- end form_part_1 -->
+
+      <div id="form_part_2" class="col-md-8 col-md-offset-2 well">
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Cab</label>
+          <div class="col-lg-10">
+
+            <% @cabs.each_with_index do |c, i| %>
+              <div class="radio radio-primary">
+                <label for="booking_cab_id_<%= c.id %>">
+                  <input type="radio" value="<%= c.id %>" name="booking[cab_id]" id="booking_cab_id_<%= c.id %>" class="radio radio-primary">
+                  <span class="circle"></span>
+                  <span class="check"></span>
+                  <%= c.name %> [ <%= c.model %> ]
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-12">
+            <input type="submit" name="commit" class="btn btn-primary pull-right btn-block btn-raised" value="Create Booking">
+            <input type="button" id="select_date" class="btn btn-default pull-right btn-block" value="SELECT DATE">
+          </div>
+        </div>
+      </div><!-- end form_part_2 -->
+    </form>
+  </div>
+</div>
+
+<div class="modal fade" id="share-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Shared Cabs</h4>
+      </div>
+      <div class="modal-body">
+        <p>Select one from below</p>
+      </div><!--end modal-body-->
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  // var x = [{
+  //   from: "49+4 123",
+  //   to: "qwe kug",
+  //   date: "1234-23-12",
+  //   id: 1
+  // }, {
+  //   from: "12sahif wa3",
+  //   to: "asdqwe",
+  //   date: "1234-23-12",
+  //   id: 2
+  // }, {
+  //   from: "awlio 123",
+  //   to: "qwe98 h hfl",
+  //   date: "1234-23-12",
+  //   id: 3
+  // }];
+
+  // x.forEach(function(record) {
+  //   var str = "";
+  //   Object.keys(record).forEach(function(key) {
+  //     if (key === "id") {return;};
+  //     str += key + ": " + record[key] + "<br>";
+  //   });
+  //   $(".modal-body").append(
+  //     $("<p>")
+  //       .html(str)
+  //       .data("href","/bookings/"+record.id)
+  //       .click(function(){
+  //         window.location.href=$(this).data("href")
+  //       })
+  //   )
+  // });
+  // $("#share-modal").modal("show");
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMpLH1O2vYg3wW0ksCrAK-b7dILRbsdpI&libraries=places&callback=setupGooglePlaces" defer async></script>
+<script type="text/javascript">
+  function setupGooglePlaces() {
+    $("input[type=text]").keyup(function(e) {
+      var currVal = $(this).val();
+
+      if (!currVal) {return; }
+      if (currVal === $(this).data("oldVal")) {return; }
+
+      $(this).data("oldVal", currVal);
+
+      var params = {
+        componentRestrictions: {
+          country: ['in']
+        },
+        input: currVal
+      };
+
+      var service = new google.maps.places.AutocompleteService();
+      service.getPlacePredictions(params, function(predictions, status) {
+        if (status != google.maps.places.PlacesServiceStatus.OK) {
+          alert("Some problem has occured. Please try again later.");
+          return;
+        }
+
+        $('#places').html("");
+        predictions.forEach(function(prediction, i) {
+          $('#places').append("<option value='" + prediction.description + "'>");
+        });
+      });
+    });
+  }
+
+  $("#select_cab").click(function() {
+    $.getJSON("/bookings/check_existing", {
+      from: $("#booking_from").val(),
+      to: $("#booking_to").val()
+    }, function(res) {
+      if (res.status === 0) {
+        $('#form_part_1').hide();
+        $('#form_part_2').show();
+
+        return;
+      }
+
+      res.bookings.forEach(function(booking) {
+        $(".modal-body").html("");
+
+        var str = "";
+        Object.keys(booking).forEach(function(key) {
+          if (key === "id") {
+            return;
+          };
+          str += key + ": " + booking[key] + "<br>";
+        });
+        $(".modal-body").append(
+          $("<p>")
+          .html(str)
+          .data("href", "/bookings/" + booking.id)
+          .click(function() {
+            window.location.href = $(this).data("href")
+          })
+        );
+      });
+      $("#share-modal").modal("show");
+
+      $('#form_part_1').hide();
+      $('#form_part_2').show();
+    });
+
+    var origin = $("#booking_from").val();
+    var destination = $("#booking_to").val();
+
+    var service = new google.maps.DistanceMatrixService;
+    service.getDistanceMatrix({
+      origins: [origin],
+      destinations: [destination],
+      travelMode: google.maps.TravelMode.DRIVING,
+      unitSystem: google.maps.UnitSystem.METRIC,
+    }, function(response, status) {
+      if (status !== google.maps.DistanceMatrixStatus.OK) {
+        alert("Some problem has occured. Please try again later.");
+        return;
+      }
+      $("input[name='distance']").val(response.rows[0].elements[0].distance.value);
+    });
+  });
+
+  $("#select_date").click(function() {
+    $('#form_part_1').show();
+    $('#form_part_2').hide();
+    $("input[name='distance']").val("-1");
+  });
+
+  $("#new_booking").keypress(function(e) {
+    if (e.keyCode == 13) {
+      return false;
+    }
+  });
+</script>

@@ -1,0 +1,51 @@
+body
+{
+  background-color:black;
+  width:100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.navbar{
+  background-color:#555555 !important;
+  width:100%;
+}
+/*#navlog{
+border:1px solid #999999;
+padding: 1em 1em 1em 1em;
+}*/
+.navbar-brand{
+  font-size:24px;
+}
+.logo{
+  height:270px;
+  width:350px;
+}
+.welcome{
+  font-family: 'Source Sans Pro', sans-serif !important;
+  color:#999999 !important;
+}
+.footer{
+  height:50px;
+  background-color:#555555 !important;
+}
+#log1{
+  background-color:#dd4b39 !important;
+  margin-left:-20%;
+
+}
+#log1 a{
+  font-color:white !important;
+}
+#log2{
+  background-color:#3B5998 !important;
+}
+#bookbtn{
+  color:white !important;
+  font-size:24px;
+}
+.container .btn *{
+  color: white;
+}
+
+.about p{
+  font-size:18px;
+}
