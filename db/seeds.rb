@@ -14,112 +14,33 @@ User.create do |u|
 end
 
 Cab.create do |c|
-  c.name = "dezire"
+  c.name = "Small cab"
   c.model = "ac"
   c.price = 7
 end
 Cab.create do |c|
-  c.name = "dezire"
+  c.name = "Small cab"
   c.model = "non - ac"
   c.price = 6
 end
 Cab.create do |c|
-  c.name = "indigo"
-  c.model = "ac"
-  c.price = 7
-end
-Cab.create do |c|
-  c.name = "indigo"
-  c.model = "non - ac"
-  c.price = 6
-end
-Cab.create do |c|
-  c.name = "etios"
-  c.model = "ac"
-  c.price = 7
-end
-Cab.create do |c|
-  c.name = "etios"
-  c.model = "non - ac"
-  c.price = 6
-end
-Cab.create do |c|
-  c.name = "tavera"
+  c.name = "Tavera"
   c.model = "ac"
   c.price = 8
 end
 Cab.create do |c|
-  c.name = "tavera"
+  c.name = "Tavera"
   c.model = "non - ac"
   c.price = 7
 end
 Cab.create do |c|
-  c.name = "ertiga"
-  c.model = "ac"
-  c.price = 8
-end
-Cab.create do |c|
-  c.name = "ertiga"
-  c.model = "non - ac"
-  c.price = 7
-end
-Cab.create do |c|
-  c.name = "innova"
+  c.name = "Innova"
   c.model = "ac"
   c.price = 10
 end
 Cab.create do |c|
-  c.name = "innova"
+  c.name = "Innova"
   c.model = "non - ac"
   c.price = 9
 end
-Cab.create do |c|
-  c.name = "xylo"
-  c.model = "ac"
-  c.price = 10
-end
-Cab.create do |c|
-  c.name = "xylo"
-  c.model = "non - ac"
-  c.price = 9
-end
-Cab.create do |c|
-  c.name = "qualis"
-  c.model = "ac"
-  c.price = 10
-end
-Cab.create do |c|
-  c.name = "qualis"
-  c.model = "non - ac"
-  c.price = 9
-end
-Cab.create do |c|
-  c.name = "bolero"
-  c.model = "ac"
-  c.price = 10
-end
-Cab.create do |c|
-  c.name = "bolero"
-  c.model = "non - ac"
-  c.price = 9
-end
-Cab.create do |c|
-  c.name = "traveller"
-  c.model = "ac"
-  c.price = 17.5
-end
-Cab.create do |c|
-  c.name = "traveller"
-  c.model = "non - ac"
-  c.price = 15.5
-end
-Cab.create do |c|
-  c.name = "xuv 500"
-  c.model = "ac"
-  c.price = 15.5
-end
-Cab.create do |c|
-  c.name = "xuv 500"
-  c.model = "non - ac"
-  c.price = 15.5
-end
+
