@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
-    @booking.price = (params[:distance].to_i / 1000 * 2 + 40) * @booking.cab.price.to_i
+    @booking.price = (params[:distance].to_i / 1000 * 2 + 40) * @booking.cab.price.to_i-200
 
     if @booking.save
       redirect_to @booking
